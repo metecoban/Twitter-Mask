@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
-  LoginPage({Key? key}) : super(key: key);
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -17,21 +17,21 @@ class _LoginPageState extends State<LoginPage> {
       ),
       body: Center(
         child: Container(
-          margin: EdgeInsets.only(top: 50, left: 50, right: 50),
+          margin: const EdgeInsets.only(top: 50, left: 50, right: 50),
           child: Column(
             children: [
-              Container(height: 200, child: Image.asset("assets/logo.jpeg")),
-              SizedBox(
+              SizedBox(height: 200, child: Image.asset("assets/logo.jpeg")),
+              const SizedBox(
                 height: 20,
               ),
-              Text(
+              const Text(
                 'Login',
                 style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
-              TextField(
+              const TextField(
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.email),
@@ -39,10 +39,10 @@ class _LoginPageState extends State<LoginPage> {
                   hintText: 'Enter your Email',
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              TextField(
+              const TextField(
                 obscureText: true,
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.lock),
@@ -52,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
                   hintText: 'Enter your Password',
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               Row(
@@ -60,20 +60,20 @@ class _LoginPageState extends State<LoginPage> {
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () {},
-                      child: Text("Login"),
+                      child: const Text("Login"),
                       style: ElevatedButton.styleFrom(
                         primary: Colors.blue,
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.pushNamed(context, '/RegisterPage');
                     },
-                    child: Text("Register"),
+                    child: const Text("Register"),
                     style: ElevatedButton.styleFrom(
                       primary: Colors.blue.shade700,
                     ),
@@ -87,53 +87,3 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
-/**Center(
-        child: Padding(
-          padding: const EdgeInsets.all(30.0),
-          child: Column(
-            children: [
-              Text('Login',
-                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900)),
-              SizedBox(height: 30),
-              Text('Sign in to continue'),
-              SizedBox(height: 20),
-              TextField(
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.email),
-                  border: OutlineInputBorder(),
-                  hintText: 'Enter your Email',
-                ),
-              ),
-              SizedBox(height: 20),
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.lock),
-                  // suffixIcon: IconButton(
-                  //     onPressed: () {}, icon: Icon(Icons.remove_red_eye)),
-                  border: OutlineInputBorder(),
-                  hintText: 'Enter your Password',
-                ),
-              ),
-              SizedBox(
-                width: 300,
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(primary: Colors.black),
-                    onPressed: () {
-                      // Navigator.pushNamed(context, '/second');
-                    },
-                    child: Text('Login')),
-              ),
-              SizedBox(
-                  width: 300,
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(primary: Colors.black),
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/RegisterPage');
-                      },
-                      child: Text('Register'))),
-            ],
-          ),
-        ),
-      ), */
