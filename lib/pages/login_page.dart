@@ -38,8 +38,9 @@ class _LoginPageState extends State<LoginPage> {
                   SignInButton(
                     Buttons.Twitter,
                     text: "Use Twitter",
-                    onPressed: () {
-                      AuthService.login();
+                    onPressed: () async {
+                      await AuthService.login();
+                      Navigator.pushNamed(context, '/Homepage');
                     },
                   )
                 ],
