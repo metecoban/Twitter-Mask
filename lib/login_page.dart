@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:twitter_mask/service/auth.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -26,59 +28,20 @@ class _LoginPageState extends State<LoginPage> {
                     height: 20,
                   ),
                   const Text(
-                    'Login',
-                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
+                    '*In order to use the Twitter Mask application, you must log in from twitter.',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                    textAlign: TextAlign.center,
                   ),
                   const SizedBox(
-                    height: 40,
+                    height: 30,
                   ),
-                  const TextField(
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.email),
-                      border: OutlineInputBorder(),
-                      hintText: 'Enter your Email',
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.lock),
-                      border: OutlineInputBorder(),
-                      hintText: 'Enter your Password',
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: const Text("Login"),
-                          style: ElevatedButton.styleFrom(
-                            primary: Colors.blue,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/RegisterPage');
-                        },
-                        child: const Text("Register"),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.blue.shade700,
-                        ),
-                      ),
-                    ],
-                  ),
+                  SignInButton(
+                    Buttons.Twitter,
+                    text: "Use Twitter",
+                    onPressed: () {
+                      AuthService.login();
+                    },
+                  )
                 ],
               ),
             ),
