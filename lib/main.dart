@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Twitter Mask',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.purple,
+        primarySwatch: Colors.blue,
       ),
       onGenerateRoute: Navigation.navigationGenarator,
     );

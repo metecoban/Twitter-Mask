@@ -25,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   SizedBox(height: 200, child: Image.asset("assets/logo.jpeg")),
                   const SizedBox(
-                    height: 20,
+                    height: 80,
                   ),
                   const Text(
                     '*In order to use the Twitter Mask application, you must log in from twitter.',
@@ -33,11 +33,11 @@ class _LoginPageState extends State<LoginPage> {
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 160,
                   ),
                   SignInButton(
                     Buttons.Twitter,
-                    text: "Use Twitter",
+                    text: "Use Twitter to Login",
                     onPressed: () async {
                       await AuthService.login();
                       Navigator.pushNamed(context, '/Homepage');

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:twitter_mask/pages/archive_page.dart';
+import 'package:twitter_mask/pages/filter_page.dart';
 import 'package:twitter_mask/pages/homepage.dart';
 import 'package:twitter_mask/pages/login_page.dart';
+import 'package:twitter_mask/pages/profile_page.dart';
 
 class Navigation {
   static Route<dynamic> navigationGenarator(RouteSettings settings) {
@@ -12,7 +15,21 @@ class Navigation {
           settings: settings,
           builder: (context) => const Homepage(),
         );
-
+      case '/FilterPage':
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (context) => const FilterPage(),
+        );
+      case '/ArchivePage':
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (context) => const ArchivePage(),
+        );
+      case '/ProfilePage':
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (context) => const ProfilePage(),
+        );
       default:
         return MaterialPageRoute(builder: (context) => const LoginPage());
     }
