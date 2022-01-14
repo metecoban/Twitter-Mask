@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:twitter_mask/models/user_model.dart';
 import 'package:twitter_mask/service/auth.dart';
 
 class LoginPage extends StatefulWidget {
@@ -39,8 +40,9 @@ class _LoginPageState extends State<LoginPage> {
                     Buttons.Twitter,
                     text: "Use Twitter to Login",
                     onPressed: () async {
-                      await AuthService.login();
-                      Navigator.pushNamed(context, '/Homepage');
+                      UserModel? user = await AuthService.login();
+                      Navigator.pushNamed(context, '/Homepage',
+                          arguments: user);
                     },
                   )
                 ],

@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:twitter_mask/models/user_model.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+  const ProfilePage({Key? key, this.user}) : super(key: key);
+  final UserModel? user;
 
   @override
   _ProfilePageState createState() => _ProfilePageState();
@@ -26,7 +27,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: FittedBox(
                   fit: BoxFit.fill,
                   child: CircleAvatar(
-                    backgroundImage: NetworkImage(UserModel.photoUrl
+                    backgroundImage: NetworkImage(widget.user!.photoUrl
                         .toString()
                         .replaceAll("_normal", "")),
                   ),
@@ -36,7 +37,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 height: 50,
                 child: Center(
                   child: Text(
-                    UserModel.username.toString(),
+                    widget.user!.username.toString(),
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -47,8 +48,8 @@ class _ProfilePageState extends State<ProfilePage> {
               const SizedBox(height: 40),
               ElevatedButton(
                 onPressed: () {
-                  //debugPrint( UserModel.photoUrl.toString().replaceAll("_normal", ""));
-                  Navigator.pushNamed(context, '/ArchivePage');
+                  Navigator.pushNamed(context, '/ArchivePage',
+                      arguments: widget.user);
                 },
                 child: const Text("Tweet Archive"),
               ),
@@ -56,7 +57,6 @@ class _ProfilePageState extends State<ProfilePage> {
               ElevatedButton(
                 onPressed: () async {
                   await FirebaseAuth.instance.signOut();
-                  debugPrint("====== Logged out ======");
                   Navigator.popUntil(context, (route) => route.isFirst);
                 },
                 child: const Text("Log out"),
